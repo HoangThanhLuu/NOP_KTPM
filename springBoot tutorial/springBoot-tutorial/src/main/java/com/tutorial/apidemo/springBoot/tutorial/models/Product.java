@@ -1,17 +1,24 @@
 package com.tutorial.apidemo.springBoot.tutorial.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+@Entity
 public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String productName;
-    private int year;
+    private int productYear; // Sửa từ 'year' thành 'productYear'
     private Double price;
     private String url;
 
-    public Product(Long id, String productName, int year, Double price, String url) {
-        this.id = id;
+    public Product( String productName, int productYear, Double price, String url) {
+
         this.productName = productName;
-        this.year = year;
+        this.productYear = productYear;
         this.price = price;
         this.url = url;
     }
@@ -35,12 +42,12 @@ public class Product {
         this.productName = productName;
     }
 
-    public int getYear() {
-        return year;
+    public int getProductYear() {
+        return productYear;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setProductYear(int productYear) {
+        this.productYear = productYear;
     }
 
     public Double getPrice() {
@@ -64,7 +71,7 @@ public class Product {
         return "Product{" +
                 "id=" + id +
                 ", productName='" + productName + '\'' +
-                ", year=" + year +
+                ", productYear=" + productYear +
                 ", price=" + price +
                 ", url='" + url + '\'' +
                 '}';
